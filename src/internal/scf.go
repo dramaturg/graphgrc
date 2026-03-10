@@ -66,7 +66,7 @@ var SupportedFrameworks = map[Framework]ControlHeader{
 	"ISO 27002": "ISO 27002 v2022",
 	// "ISO 27701":   "ISO 27701  v2019",
 	"NIST 800-53": "NIST 800-53B rev5 (moderate)",
-	// "HIPAA":       "US HIPAA",
+	"HIPAA":       "US HIPAA",
 }
 
 var SCFControlFamilyMapping = map[string]string{
