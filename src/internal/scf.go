@@ -51,22 +51,21 @@ const ContinuouslyImproving = "Continuously Improving"
 var SCFColumnMapping = map[string]ControlHeader{
 	Description:              "Secure Controls Framework (SCF) Control Description",
 	ControlQuestions:         "SCF Control Question",
-	NotPerformed:             "SP-CMM 0 Not Performed",
-	PerformedInternally:      "SP-CMM 1 Performed Informally",
-	PlannedAndTracked:        "SP-CMM 2 Planned & Tracked",
-	WellDefined:              "SP-CMM 3 Well Defined",
-	QuantitativelyControlled: "SP-CMM 4 Quantitatively Controlled",
-	ContinuouslyImproving:    "SP-CMM 5 Continuously Improving",
+	NotPerformed:             "SCR-CMM Level 0 Not Performed",
+	PerformedInternally:      "SCR-CMM Level 1 Performed Informally",
+	PlannedAndTracked:        "SCR-CMM Level 2 Planned & Tracked",
+	WellDefined:              "SCR-CMM Level 3 Well Defined",
+	QuantitativelyControlled: "SCR-CMM Level 4 Quantitatively Controlled",
+	ContinuouslyImproving:    "SCR-CMM Level 5 Continuously Improving",
 }
 
 var SupportedFrameworks = map[Framework]ControlHeader{
-	"SOC 2":     "AICPA TSC 2017 (Controls)",
-	"GDPR":      "EMEA EU GDPR",
-	"ISO 27001": "ISO 27001 v2022",
-	"ISO 27002": "ISO 27002 v2022",
-	// "ISO 27701":   "ISO 27701  v2019",
-	"NIST 800-53": "NIST 800-53B rev5 (moderate)",
-	"HIPAA":       "US HIPAA",
+	"SOC 2":       "AICPA TSC 2017:2022 (used for SOC 2)",
+	"GDPR":        "EMEA EU GDPR",
+	"ISO 27001":   "ISO 27001 2022",
+	"ISO 27002":   "ISO 27002 2022",
+	"NIST 800-53": "NIST 800-53B R5 (moderate)",
+	"HIPAA":       "US HIPAA Security Rule / NIST SP 800-66 R2",
 }
 
 var SCFControlFamilyMapping = map[string]string{
@@ -130,7 +129,7 @@ func ReturnSCFControls(url string, getFile bool) (SCFControls, error) {
 			log.Println(err)
 		}
 	}()
-	rows, err := f.GetRows("SCF 2023.4")
+	rows, err := f.GetRows("SCF 2026.1")
 	if err != nil {
 		return nil, err
 	}

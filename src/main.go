@@ -26,7 +26,7 @@ func main() {
 func runSCFMode(getFile bool) {
 	log.Println("Running in SCF mode...")
 
-	latestScfLink := "https://github.com/securecontrolsframework/securecontrolsframework/raw/main/Secure%20Controls%20Framework%20(SCF)%20-%202023.4.xlsx"
+	latestScfLink := "https://github.com/securecontrolsframework/securecontrolsframework/releases/download/2026.1/secure-controls-framework-scf-2026-1.xlsx"
 	scfControls, err := internal.ReturnSCFControls(latestScfLink, getFile)
 	if err != nil {
 		log.Fatal(err)
@@ -37,7 +37,7 @@ func runSCFMode(getFile bool) {
 	}
 	internal.GenerateSCFIndex(scfControlMappings, scfControls)
 
-	soc2Link := "https://raw.githubusercontent.com/prowler-cloud/prowler/main/prowler/compliance/aws/soc2_aws.json"
+	soc2Link := "https://raw.githubusercontent.com/prowler-cloud/prowler/master/prowler/compliance/aws/soc2_aws.json"
 	soc2Framework, err := internal.GetSOC2Controls(soc2Link, getFile)
 	if err != nil {
 		log.Fatal(err)
@@ -95,7 +95,7 @@ func runSCFMode(getFile bool) {
 	}
 	internal.GenerateISOIndex(iso27002, iso27002Framework)
 
-	nist80053Link := "https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/json/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json"
+	nist80053Link := "https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_MODERATE-baseline-resolved-profile_catalog.json"
 	nist80053Framework, err := internal.GetNIST80053Controls(nist80053Link, getFile)
 	if err != nil {
 		log.Fatal(err)
@@ -151,7 +151,7 @@ func runCustomMode(getFile bool) {
 	}
 
 	// 4. SOC 2 with custom control mappings (SAME CODE as SCF mode)
-	soc2Link := "https://raw.githubusercontent.com/prowler-cloud/prowler/main/prowler/compliance/aws/soc2_aws.json"
+	soc2Link := "https://raw.githubusercontent.com/prowler-cloud/prowler/master/prowler/compliance/aws/soc2_aws.json"
 	soc2Framework, err := internal.GetSOC2Controls(soc2Link, getFile)
 	if err != nil {
 		log.Fatal(err)
